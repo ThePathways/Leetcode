@@ -17,3 +17,26 @@ class Solution {
         return maxLength;
     }
 }
+
+/%
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        HashMap<Character, Integer> lastIndex = new HashMap<>();
+        int maxLength = 0;
+        int left = 0;
+
+        for (int right = 0; right < s.length(); right++) {
+            char currentChar = s.charAt(right);
+
+            if (lastIndex.containsKey(currentChar) && lastIndex.get(currentChar) >= left) {
+                left = lastIndex.get(currentChar) + 1;
+            }
+
+            lastIndex.put(currentChar, right);
+            maxLength = Math.max(maxLength, right - left + 1);
+        }
+
+        return maxLength;
+    }
+}
+%/
