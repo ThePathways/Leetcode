@@ -8,7 +8,8 @@ class Solution {
         if(x < 0 || (x > 0 && x % 10 ==0)) return false;
 
         while (x != 0) {
-            rev = rev * 10 + x % 10;
+            rem = x % 10;
+            rev = rev * 10 + rem;
             x = x / 10;
         }
         return num == rev;
