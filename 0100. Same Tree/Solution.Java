@@ -27,6 +27,6 @@ class Solution {
             qQueue.offer(qCurrent.left);
             qQueue.offer(qCurrent.right);
         }
-        return true;
+        return pQueue.isEmpty() && qQueue.isEmpty();
     }
 }
